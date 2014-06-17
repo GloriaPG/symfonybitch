@@ -1,59 +1,91 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "symfony/symfony",
+    "type": "library",
+    "description": "The Symfony PHP framework",
+    "keywords": ["framework"],
+    "homepage": "http://symfony.com",
     "license": "MIT",
-    "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
-    "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
-    },
+    "authors": [
+        {
+            "name": "Fabien Potencier",
+            "email": "fabien@symfony.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "http://symfony.com/contributors"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.5.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "~1.2",
-        "twig/extensions": "~1.0",
-        "symfony/assetic-bundle": "~2.3",
-        "symfony/swiftmailer-bundle": "~2.3",
-        "symfony/monolog-bundle": "~2.4",
-        "sensio/distribution-bundle": "~3.0",
-        "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "symfony/icu": "~1.0",
+        "doctrine/common": "~2.2",
+        "twig/twig": "~1.11",
+        "psr/log": "~1.0"
+    },
+    "replace": {
+        "symfony/browser-kit": "v2.5.0",
+        "symfony/class-loader": "v2.5.0",
+        "symfony/config": "v2.5.0",
+        "symfony/console": "v2.5.0",
+        "symfony/css-selector": "v2.5.0",
+        "symfony/dependency-injection": "v2.5.0",
+        "symfony/debug": "v2.5.0",
+        "symfony/doctrine-bridge": "v2.5.0",
+        "symfony/dom-crawler": "v2.5.0",
+        "symfony/event-dispatcher": "v2.5.0",
+        "symfony/expression-language": "v2.5.0",
+        "symfony/filesystem": "v2.5.0",
+        "symfony/finder": "v2.5.0",
+        "symfony/form": "v2.5.0",
+        "symfony/framework-bundle": "v2.5.0",
+        "symfony/http-foundation": "v2.5.0",
+        "symfony/http-kernel": "v2.5.0",
+        "symfony/intl": "v2.5.0",
+        "symfony/locale": "v2.5.0",
+        "symfony/monolog-bridge": "v2.5.0",
+        "symfony/options-resolver": "v2.5.0",
+        "symfony/process": "v2.5.0",
+        "symfony/propel1-bridge": "v2.5.0",
+        "symfony/property-access": "v2.5.0",
+        "symfony/proxy-manager-bridge": "v2.5.0",
+        "symfony/routing": "v2.5.0",
+        "symfony/security": "v2.5.0",
+        "symfony/security-acl": "v2.5.0",
+        "symfony/security-core": "v2.5.0",
+        "symfony/security-csrf": "v2.5.0",
+        "symfony/security-http": "v2.5.0",
+        "symfony/security-bundle": "v2.5.0",
+        "symfony/serializer": "v2.5.0",
+        "symfony/stopwatch": "v2.5.0",
+        "symfony/swiftmailer-bridge": "v2.5.0",
+        "symfony/templating": "v2.5.0",
+        "symfony/translation": "v2.5.0",
+        "symfony/twig-bridge": "v2.5.0",
+        "symfony/twig-bundle": "v2.5.0",
+        "symfony/validator": "v2.5.0",
+        "symfony/web-profiler-bundle": "v2.5.0",
+        "symfony/yaml": "v2.5.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "doctrine/data-fixtures": "1.0.*",
+        "doctrine/dbal": "~2.2",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "monolog/monolog": "~1.3",
+        "propel/propel1": "1.6.*",
+        "ircmaxell/password-compat": "1.0.*",
+        "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
+        "egulias/email-validator": "1.1.0"
     },
-    "scripts": {
-        "post-root-package-install": [
-            "SymfonyStandard\\Composer::hookRootPackageInstall"
+    "autoload": {
+        "psr-0": { "Symfony\\": "src/" },
+        "classmap": [
+            "src/Symfony/Component/HttpFoundation/Resources/stubs",
+            "src/Symfony/Component/Intl/Resources/stubs"
         ],
-        "post-install-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
-        ],
-        "post-update-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
-        ]
+        "files": [ "src/Symfony/Component/Intl/Resources/stubs/functions.php" ]
     },
-    "config": {
-        "bin-dir": "bin"
-    },
+    "minimum-stability": "dev",
     "extra": {
-        "symfony-app-dir": "app",
-        "symfony-bin-dir": "bin",
-        "symfony-var-dir": "var",
-        "symfony-web-dir": "web",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        },
         "branch-alias": {
             "dev-master": "2.5-dev"
         }
