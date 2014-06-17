@@ -1,0 +1,28 @@
+acme_blog:
+    resource: "@AcmeBlogBundle/Resources/config/routing.php"
+    prefix:   /
+
+# AcmeBlogBundle routes
+post:
+    pattern: /post/
+    defaults: { _controller: AcmeBlogBundle:Post:index }
+post_new:
+    pattern: /post_new
+    defaults: { _controller: AcmeBlogBundle:Post:new }
+post_create:
+    pattern: /post_create
+    defaults: { _controller: AcmeBlogBundle:Post:create }
+post_show:
+    pattern: /post_show/{id}
+    defaults: { _controller: AcmeBlogBundle:Post:show }
+post_edit:
+    pattern: /{id}/edit
+    defaults: { _controller: AcmeBlogBundle:Post:edit }
+post_delete:
+    pattern: /{id}
+    defaults: { _controller: AcmeBlogBundle:Post:delete }
+post_update:
+    pattern: /{id}
+    defaults: { _controller: AcmeBlogBundle:Post:update }
+
+
